@@ -33,6 +33,62 @@ More info about dataset can be found here:
 
 ## Data Model
 <img src="data_model.jpeg">
+---
 
-## Complete Video Tutorial 
-Video Link - https://youtu.be/WpQECq5Hx9g
+Here's how to **safely install everything in a Python virtual environment**, avoiding system-wide installations.
+
+---
+
+### ✅ **Step-by-Step: Install Everything in a Virtual Environment**
+
+#### 1. **Update apt and install system-level dependencies (outside virtual env)**  
+These are required only once and **must be run as sudo**:
+```bash
+sudo apt-get update
+sudo apt-get install python3-venv python3-distutils python3-apt wget
+```
+
+#### 2. **Create & activate virtual environment**
+```bash
+python3 -m venv myenv
+source myenv/bin/activate
+```
+
+> Now you're working *inside* the virtual environment — any Python packages installed now will **not** affect your system Python.
+
+#### 3. **Install pip (if not already included in the venv)**
+Usually comes preinstalled, but to ensure:
+```bash
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+```
+
+---
+
+### ✅ **Install Required Python Packages in venv (no `sudo`)**
+
+Once you're inside the virtual environment (`myenv` is active):
+
+```bash
+pip install mage-ai
+pip install pandas
+pip install google-cloud
+pip install google-cloud-bigquery
+```
+
+> ✅ Note: Don't use `sudo` inside a virtual environment. It's unnecessary and may break things.
+
+---
+
+### 🔍 Check Installed Packages (Optional)
+```bash
+pip list
+```
+
+---
+
+### ✅ Tip: Reuse the environment later
+Just activate it again whenever you need it:
+```bash
+source myenv/bin/activate
+```
